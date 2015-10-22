@@ -25,6 +25,8 @@ public class Jugador {
     private int rebotesTotales;
     @Column
     private String posicionCampo;
+    @ManyToOne //un equipo de tiene varios jugadores
+    private Equipo equipo;
 
     public Jugador(){
 
@@ -38,6 +40,9 @@ public class Jugador {
         this.setRebotesTotales(rebotes);
         this.setPosicionCampo(posicion);
     }
+    public Equipo getEquipo() { return equipo; }
+
+    public void setEquipo(Equipo equipo) { this.equipo = equipo; }
 
     public Long getIdentificador() {
         return identificador;
@@ -105,6 +110,7 @@ public class Jugador {
                 ", asistenciasTotales=" + asistenciasTotales +
                 ", rebotesTotales=" + rebotesTotales +
                 ", posicionCampo='" + posicionCampo + '\'' +
+                ", equipo=" + equipo +
                 '}';
     }
 }

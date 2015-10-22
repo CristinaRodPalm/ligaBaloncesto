@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface JugadorRepository extends PagingAndSortingRepository<Jugador, Long> {
 
-    //a
+   /* //a
     public List<Jugador> findByNombreStartingWith(String nombre);
     //b
     public List<Jugador> findByCanastasTotalesGreaterThanEqual(int canastasTotales);
@@ -22,5 +22,8 @@ public interface JugadorRepository extends PagingAndSortingRepository<Jugador, L
     public List<Jugador> findByFechaNacimientoBefore(Date fecha);
     //f
     public List<Jugador> findByCanastasTotalesGreaterThanEqualAndFechaNacimientoBefore(int canastas, Date fecha);
+    */
+
+
 }
 
