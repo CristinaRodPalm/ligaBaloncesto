@@ -10,6 +10,6 @@ import java.lang.Long;import java.lang.String;import java.util.*;import java.uti
 public interface EquipoRepository extends PagingAndSortingRepository<Equipo, Long> {
 
     public List<Equipo> findByNombre(String nombre);
-    //ok
+
 
 }
