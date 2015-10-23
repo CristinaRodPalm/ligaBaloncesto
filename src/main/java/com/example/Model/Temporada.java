@@ -21,7 +21,7 @@ public class Temporada {
     @ManyToOne //una liga tiene varias temporadas
     private Liga liga;
 
-    @ManyToMany //(mappedBy = "temporadas")
+    @ManyToMany (mappedBy = "temporadas")
     private Set<Equipo> equipos = new HashSet<>();
 
     public Temporada(){
@@ -38,6 +38,7 @@ public class Temporada {
                 "identificador=" + identificador +
                 ", anyo=" + anyo +
                 ", liga=" + liga +
+                ", equipos=" + equipos +
                 '}';
     }
 

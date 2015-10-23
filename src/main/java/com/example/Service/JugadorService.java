@@ -166,9 +166,6 @@ public class JugadorService {
         System.out.println(jugador03.toString());
         System.out.println(jugador04.toString());
         System.out.println(jugador05.toString());
-
-
     }
-
 }
 

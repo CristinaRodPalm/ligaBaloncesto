@@ -1,9 +1,22 @@
 package com.example.Model;
 
-import com.example.Model.Jugador;import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.Model.Jugador;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;import javax.persistence.Column;import javax.persistence.Entity;import javax.persistence.GeneratedValue;import javax.persistence.GenerationType;import javax.persistence.Id;import javax.persistence.OneToMany;
-import java.lang.Long;import java.lang.Override;import java.lang.String;import java.util.*;import java.util.Date;import java.util.HashSet;import java.util.Set;
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.lang.Long;
+import java.lang.Override;
+import java.lang.String;
+import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -22,10 +35,8 @@ public class Equipo {
     private String localidad;
     @Column
     private Date fechaCreacion;
-    //pensando que temporada define a equipo
-        //1 temporada tiene x equipos
-        //x equipos estan en 1 temporada
-    @ManyToMany (mappedBy = "equipos")
+
+    @ManyToMany //(mappedBy = "equipos")
     private Set<Temporada> temporadas = new HashSet<>();
 
 
@@ -90,7 +101,6 @@ public class Equipo {
     public void setTemporadas(Set<Temporada> temporadas) {
         this.temporadas = temporadas;
     }
-
     @Override
     public String toString() {
         return "Equipo{" +

@@ -22,9 +22,12 @@ public class DemoApplication {
 
 
         ligaService.crearLiga();
-        temporadaService.crearTemporada();
         equipoService.crearEquipos();
         jugadorService.testJugador();
+        temporadaService.crearTemporada();
+
+        equipoService.consultas();
+
 
     }
 }
