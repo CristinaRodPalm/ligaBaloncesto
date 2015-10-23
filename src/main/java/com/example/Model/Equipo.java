@@ -5,7 +5,7 @@ import com.example.Model.Jugador;import com.fasterxml.jackson.annotation.JsonIgn
 import javax.persistence.*;import javax.persistence.Column;import javax.persistence.Entity;import javax.persistence.GeneratedValue;import javax.persistence.GenerationType;import javax.persistence.Id;import javax.persistence.OneToMany;
 import java.lang.Long;import java.lang.Override;import java.lang.String;import java.util.*;import java.util.Date;import java.util.HashSet;import java.util.Set;
 
-//ok
+
 /**
  * Created by jhipster on 12/10/15.
  */
@@ -22,6 +22,12 @@ public class Equipo {
     private String localidad;
     @Column
     private Date fechaCreacion;
+    //pensando que temporada define a equipo
+        //1 temporada tiene x equipos
+        //x equipos estan en 1 temporada
+    @ManyToMany (mappedBy = "equipos")
+    private Set<Temporada> temporadas = new HashSet<>();
+
 
     public Equipo(){
 
@@ -75,6 +81,14 @@ public class Equipo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(Set<Temporada> temporadas) {
+        this.temporadas = temporadas;
     }
 
     @Override

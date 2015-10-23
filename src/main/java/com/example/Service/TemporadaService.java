@@ -1,10 +1,7 @@
 package com.example.Service;
 
-import com.example.Model.Liga;
-import com.example.Model.Temporada;
-import com.example.Repository.EquipoRepository;
-import com.example.Repository.LigaRepository;
-import com.example.Repository.TemporadaRepository;
+import com.example.Model.*;
+import com.example.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +19,8 @@ public class TemporadaService {
     private TemporadaRepository temporadaRepository;
     @Autowired
     private LigaRepository ligaRepository;
+    /*@Autowired
+    private EquipoRepository equipoRepository;*/
 
     public void crearTemporada(){
         Calendar calendar = GregorianCalendar.getInstance();

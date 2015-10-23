@@ -21,10 +21,10 @@ public class DemoApplication {
         ligaService = context.getBean(LigaService.class);
 
 
-        equipoService.crearEquipos();
-        jugadorService.testJugador();
         ligaService.crearLiga();
         temporadaService.crearTemporada();
+        equipoService.crearEquipos();
+        jugadorService.testJugador();
 
     }
 }
