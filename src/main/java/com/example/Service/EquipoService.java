@@ -59,7 +59,7 @@ public class EquipoService {
     }
 
     public void consultas(){
-        System.out.println(equipoRepository.findByLocalidad("Barcelona"));
+        System.out.println("Equipo por localidad: " + equipoRepository.findByLocalidad("Barcelona"));
     }
 
 }

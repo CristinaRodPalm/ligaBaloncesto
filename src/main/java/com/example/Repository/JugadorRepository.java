@@ -1,6 +1,8 @@
 package com.example.Repository;
 import com.example.Model.Jugador;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -10,10 +12,36 @@ import java.util.List;
  */
 public interface JugadorRepository extends PagingAndSortingRepository<Jugador, Long> {
 
+    //PRACTICA 1
+    //a
+    public List<Jugador> findByNombreStartingWith(String nombre);
+    //b
+    public List<Jugador> findByCanastasTotalesGreaterThanEqual(int canastasTotales);
+    //c
+    public List<Jugador> findByAsistenciasTotalesBetween(int minAsistencias, int maxAsistencias);
+    //d
+    public List<Jugador> findByPosicionCampoLike(String posicionCampo);
+    //e
+    public List<Jugador> findByFechaNacimientoBefore(Date fecha);
+    //f
+    public List<Jugador> findByCanastasTotalesGreaterThanEqualAndFechaNacimientoBefore(int canastas, Date fecha);
 
-    public List<Jugador> findByAsistenciasTotalesGreaterThan(int asistencias);
 
+    //PRACTICA 2
+    //Se utiliza _ para definir explícitamente que se trata de una propiedad del objeto al que le precede.
+    //Solo es necesario cuando existen variables de varias palabras que puedan crear ambiguedad en la selección.
+    List<Jugador> findByEquipo_Nombre(String equipoNombre);
 
+    List<Jugador> findByEquipoNombreAndPosicionCampoLike(String equipoNombre, String posicion);
 
+    Jugador findFirstByOrderByCanastasTotalesDesc();
+
+    List<Jugador> findFirst5ByOrderByAsistenciasTotalesDesc();
+
+    //Con @Query podemos definir una consulta personalizada con nombre personalizado
+    //En este caso no nos hace falta el @Query obligatoriamente. Podríamos usar findByEquipoNombreOrderByCanastasDesc
+    /*@Query("SELECT j FROM Jugador j WHERE j.equipo.nombre = :equipoNombre ORDER BY j.canastas DESC")
+    List<Jugador> findByEquipoNombreCanastasDesc(@Param("equipoNombre") String equipoNombre);
+    */
 }
 

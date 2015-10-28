@@ -21,7 +21,7 @@ public class JugadorService {
     private EquipoRepository equipoRepository;
 
 
-    public void testJugador() {
+    public void crearJugadores() {
         Calendar calendar = GregorianCalendar.getInstance();
 
         //EQUIPOS
@@ -161,11 +161,18 @@ public class JugadorService {
         jugador25.setEquipo(equipo05);
         jugadorRepository.save(jugador25);
 
-        System.out.println(jugador01.toString());
+        /*System.out.println(jugador01.toString());
         System.out.println(jugador02.toString());
         System.out.println(jugador03.toString());
         System.out.println(jugador04.toString());
-        System.out.println(jugador05.toString());
+        System.out.println(jugador05.toString());*/
+    }
+
+    public void consultas(){
+        System.out.println("Jugadores por nombre de equipo: "+jugadorRepository.findByEquipo_Nombre("Equipo1"));
+        System.out.println("Jugadores del mismo equipo y posicion: "+jugadorRepository.findByEquipoNombreAndPosicionCampoLike("Equipo2", "pivot"));
+        System.out.println("Jugadores ordenados en descendiente por sus canastas: "+jugadorRepository.findFirstByOrderByCanastasTotalesDesc());
+        System.out.println("5 Jugadores con más canastas y ordenados en descendiente: "+jugadorRepository.findFirst5ByOrderByAsistenciasTotalesDesc());
+        //System.out.println("Jugadores de un equipo ordenados en descendiente por sus canastas: "+jugadorRepository.findByEquipoNombreCanastasDesc("Equipo2").get(0));
     }
 }
-
