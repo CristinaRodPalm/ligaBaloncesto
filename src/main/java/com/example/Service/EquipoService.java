@@ -24,12 +24,6 @@ public class EquipoService {
     public void crearEquipos() {
         Calendar calendar = GregorianCalendar.getInstance();
 
-        //MIRAR ERROR : Exception in thread "main" java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
-        /*calendar.set(2014, Calendar.JANUARY, 1);
-        Temporada temporada1 = temporadaRepository.findByAnyo(calendar.getTime()).get(0);
-        calendar.set(2015, Calendar.JANUARY, 1);
-        Temporada temporada2 = temporadaRepository.findByAnyo(calendar.getTime()).get(0);*/
-
         //CREACIÓN DE LOS 5 EQUIPOS
         calendar.set(1998, Calendar.JANUARY, 1);
         Equipo equipo1 = new Equipo("Equipo1", "Barcelona", calendar.getTime());

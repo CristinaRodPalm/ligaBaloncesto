@@ -3,6 +3,7 @@ import com.example.Model.Jugador;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
@@ -38,10 +39,11 @@ public interface JugadorRepository extends PagingAndSortingRepository<Jugador, L
 
     List<Jugador> findFirst5ByOrderByAsistenciasTotalesDesc();
 
+
+    @Query("SELECT j FROM Jugador j WHERE j.equipo.nombre = :equipoNombre ORDER BY j.canastasTotales DESC")
+    List<Jugador> findByEquipoNombreCanastasTotalesDesc(@Param("equipoNombre") String equipoNombre);
+
     //Con @Query podemos definir una consulta personalizada con nombre personalizado
     //En este caso no nos hace falta el @Query obligatoriamente. Podríamos usar findByEquipoNombreOrderByCanastasDesc
-    /*@Query("SELECT j FROM Jugador j WHERE j.equipo.nombre = :equipoNombre ORDER BY j.canastas DESC")
-    List<Jugador> findByEquipoNombreCanastasDesc(@Param("equipoNombre") String equipoNombre);
-    */
 }
 

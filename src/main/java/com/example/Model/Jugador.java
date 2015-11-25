@@ -1,5 +1,7 @@
 package com.example.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -25,6 +27,7 @@ public class Jugador {
     private int rebotesTotales;
     @Column
     private String posicionCampo;
+    @JsonIgnore
     @ManyToOne //un equipo de tiene varios jugadores
     private Equipo equipo;
 

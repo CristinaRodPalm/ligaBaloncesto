@@ -36,7 +36,8 @@ public class Equipo {
     @Column
     private Date fechaCreacion;
 
-    @ManyToMany //(mappedBy = "equipos")
+    @JsonIgnore
+    @ManyToMany
     private Set<Temporada> temporadas = new HashSet<>();
 
 
@@ -49,7 +50,6 @@ public class Equipo {
         this.localidad = localidad;
         this.fechaCreacion = fechaCreacion;
     }
-
     @JsonIgnore
     @OneToMany(mappedBy = "equipo") // solo en modo lectura!
     private Set<Jugador> jugadores = new HashSet<>();

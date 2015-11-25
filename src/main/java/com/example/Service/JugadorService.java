@@ -33,7 +33,7 @@ public class JugadorService {
 
         //JUGADORES EQ1
         calendar.set(1995, Calendar.JANUARY, 1);
-        Jugador jugador01 = new Jugador("Jugador1", calendar.getTime(), 26, 5, 8, "alero");
+        Jugador jugador01 = new Jugador("Jugador1", calendar.getTime(), 30, 5, 8, "alero");
         jugador01.setEquipo(equipo01);
         jugadorRepository.save(jugador01);
 
@@ -173,6 +173,6 @@ public class JugadorService {
         System.out.println("Jugadores del mismo equipo y posicion: "+jugadorRepository.findByEquipoNombreAndPosicionCampoLike("Equipo2", "pivot"));
         System.out.println("Jugadores ordenados en descendiente por sus canastas: "+jugadorRepository.findFirstByOrderByCanastasTotalesDesc());
         System.out.println("5 Jugadores con más canastas y ordenados en descendiente: "+jugadorRepository.findFirst5ByOrderByAsistenciasTotalesDesc());
-        //System.out.println("Jugadores de un equipo ordenados en descendiente por sus canastas: "+jugadorRepository.findByEquipoNombreCanastasDesc("Equipo2").get(0));
+        System.out.println("Jugadores de un equipo ordenados en descendiente por sus canastas: "+jugadorRepository.findByEquipoNombreCanastasTotalesDesc("Equipo2").get(0));
     }
 }

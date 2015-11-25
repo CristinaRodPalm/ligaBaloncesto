@@ -24,9 +24,7 @@ public class Temporada {
     @ManyToMany (mappedBy = "temporadas")
     private Set<Equipo> equipos = new HashSet<>();
 
-    public Temporada(){
-
-    }
+    public Temporada(){ }
 
     public Temporada(Date anyo) {
         this.anyo = anyo;
